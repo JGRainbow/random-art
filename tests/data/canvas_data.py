@@ -12,7 +12,7 @@ def random_turtle_canvas_data():
             RandomWalkTurtle(Coord(1, 1)),
             (4, 4),
             1,
-            np.array([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]),
+            np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]),
             id="one step from the corner",
         )
     ]
