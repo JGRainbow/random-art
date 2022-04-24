@@ -1,6 +1,7 @@
 from typing import Tuple
 
 import numpy as np
+from skimage.draw import line
 
 from app.turtle import Turtle
 
@@ -22,8 +23,25 @@ class Canvas:
         return np.zeros(grid_size)
 
     def step(self):
-        pass
+        """ Add one to any grid cell the Turtle passes over. """
+        current_turtle_position = self.turtle.current_position
+        _ = self.turtle.generate_next_vector()
+        new_turtle_position = self.turtle.current_position
+
+        rr, cc = line(current_turtle_position.x, current_turtle_position.y, new_turtle_position.x, new_turtle_position.y)
+        self.grid[rr, cc] += 1
 
     def n_steps(self, n: int):
         for _ in range(n):
             self.step()
+
+
+if __name__ == '__main__':
+    from app.turtle import RandomWalkTurtle    
+
+    t = RandomWalkTurtle()
+    c = Canvas(t)
+
+    c.step()
+
+    print(c.grid)

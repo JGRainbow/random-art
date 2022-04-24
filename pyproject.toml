@@ -1,18 +1,16 @@
 [tool.poetry]
-name = "random-art"
+name = "Random Art"
 version = "0.1.0"
-description = "Generating random art using Logo instructions."
+description = "Generating random artwork from Logo rules."
 authors = ["Jacob Rainbow <jacobrainbow@Jacobs-MacBook-Pro.local>"]
-license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">=3.8"
-numpy = "^1.22.3"
+python = "^3.8"
+scikit-image = "^0.19.2"
 assertpy = "^1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
-assertpy = "^1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
