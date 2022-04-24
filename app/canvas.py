@@ -30,6 +30,7 @@ class Canvas:
         assert (
             coord.y >= 0 and coord.x < self.grid_size[1]
         ), f"Turtle has wandered off grid in y direction."
+
     # TODO : It would be nice to dynamically extend grid size
 
     def step(self):
@@ -42,7 +43,7 @@ class Canvas:
         # Only add to the current cell if it is the very start (i.e. 0)
         if self.grid[current_turtle_position.y, current_turtle_position.x] > 0:
             self.grid[current_turtle_position.y, current_turtle_position.x] -= 1
-            
+
         rr, cc = line(
             current_turtle_position.x,
             current_turtle_position.y,
@@ -50,7 +51,6 @@ class Canvas:
             new_turtle_position.y,
         )
         self.grid[rr, cc] += 1
-
 
     def n_steps(self, n: int):
         for _ in range(n):
