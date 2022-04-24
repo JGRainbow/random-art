@@ -23,9 +23,11 @@ class TestCanvas:
 
         # Act
         for _ in range(num_steps):
+            print(canvas.grid)
             canvas.step()
 
         grid = canvas.grid
+        print(f'final grid: {grid}')
 
         # Assert
         assert_array_equal(grid, expected_grid)

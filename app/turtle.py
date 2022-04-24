@@ -19,8 +19,12 @@ class RandomWalkTurtle(Turtle):
     """Generates vectors where dx and dy are randomly ±1."""
 
     def __init__(self, start_position: Coord = Coord(0, 0), seed: int = 149):
-        random.seed(seed)
+        self._seed = seed
+        self._init_seed(seed)
         self.current_position = start_position
+
+    def _init_seed(self, seed):
+        random.seed(seed)
 
     def generate_next_vector(self) -> Vector:
         dx = 2 * random.randint(0, 1) - 1
