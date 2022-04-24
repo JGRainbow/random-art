@@ -6,9 +6,8 @@ from app.coord import Coord
 
 class Canvas:
 
-    def __init__(self, turtle: Turtle, starting_coord: Coord, grid_size: Tuple[int] = (10, 10)):
+    def __init__(self, turtle: Turtle, grid_size: Tuple[int] = (10, 10)):
         self.turtle = turtle
-        self.starting_coord = starting_coord
         self.grid_size = grid_size
 
     def step(self):
