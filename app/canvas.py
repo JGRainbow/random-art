@@ -2,8 +2,8 @@ from typing import Tuple
 
 import numpy as np
 from skimage.draw import line
-from app.coord import Coord
 
+from app.coord import Coord
 from app.turtle import Turtle
 
 
@@ -24,17 +24,26 @@ class Canvas:
         return np.zeros(grid_size)
 
     def _validate_position(self, coord: Coord):
-        assert coord.x >= 0 and coord.x < self.grid_size[0], f'Turtle has wandered off grid in x direction.'
-        assert coord.y >= 0 and coord.x < self.grid_size[1], f'Turtle has wandered off grid in y direction.'
+        assert (
+            coord.x >= 0 and coord.x < self.grid_size[0]
+        ), f"Turtle has wandered off grid in x direction."
+        assert (
+            coord.y >= 0 and coord.x < self.grid_size[1]
+        ), f"Turtle has wandered off grid in y direction."
 
     def step(self):
-        """ Add one to any grid cell the Turtle passes over. """
+        """Add one to any grid cell the Turtle passes over."""
         current_turtle_position = self.turtle.current_position
         _ = self.turtle.generate_next_vector()
         new_turtle_position = self.turtle.current_position
         self._validate_position(new_turtle_position)
 
-        rr, cc = line(current_turtle_position.x, current_turtle_position.y, new_turtle_position.x, new_turtle_position.y)
+        rr, cc = line(
+            current_turtle_position.x,
+            current_turtle_position.y,
+            new_turtle_position.x,
+            new_turtle_position.y,
+        )
         self.grid[rr, cc] += 1
 
     def n_steps(self, n: int):
@@ -42,8 +51,8 @@ class Canvas:
             self.step()
 
 
-if __name__ == '__main__':
-    from app.turtle import RandomWalkTurtle    
+if __name__ == "__main__":
+    from app.turtle import RandomWalkTurtle
 
     t = RandomWalkTurtle()
     c = Canvas(t)

@@ -1,7 +1,7 @@
+import numpy as np
 from pytest import param
 
-import numpy as np
-from app.coord import Coord, Vector
+from app.coord import Coord
 from app.turtle import RandomWalkTurtle
 
 
@@ -13,7 +13,7 @@ def random_turtle_canvas_data():
             (4, 4),
             1,
             np.array([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]),
-            id='one step from the corner'
+            id="one step from the corner",
         )
     ]
     return test_variables, test_data
