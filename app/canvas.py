@@ -3,12 +3,11 @@ from typing import Tuple
 import numpy as np
 
 from app.turtle import Turtle
-from app.coord import Coord
 
 
 class Canvas:
     """
-    Board for simulating Turtle movements. 
+    Board for simulating Turtle movements.
     ---
     Grid size is (height, width)
     """

@@ -1,7 +1,9 @@
 from collections import namedtuple
 from dataclasses import dataclass
 
-Vector = namedtuple('Vector', 'dx,dy')
+Vector = namedtuple("Vector", "dx,dy")
+
+
 @dataclass
 class Coord:
     x: int
@@ -14,4 +16,3 @@ class Coord:
             return Coord(new_x, new_y)
         else:
             raise ValueError("Vector value is required.")
-
