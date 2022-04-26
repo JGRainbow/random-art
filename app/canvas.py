@@ -36,19 +36,19 @@ class Canvas:
     def step(self):
         """Add one to any grid cell the Turtle passes over."""
         current_turtle_position = self.turtle.current_position
-        _ = self.turtle.generate_next_vector()
-        new_turtle_position = self.turtle.current_position
-        self._validate_position(new_turtle_position)
-
         # Only add to the current cell if it is the very start (i.e. 0)
         if self.grid[current_turtle_position.y, current_turtle_position.x] > 0:
             self.grid[current_turtle_position.y, current_turtle_position.x] -= 1
 
+        _ = self.turtle.generate_next_vector()
+        new_turtle_position = self.turtle.current_position
+        self._validate_position(new_turtle_position)
+
         rr, cc = line(
-            current_turtle_position.x,
             current_turtle_position.y,
-            new_turtle_position.x,
+            current_turtle_position.x,
             new_turtle_position.y,
+            new_turtle_position.x,
         )
         self.grid[rr, cc] += 1
 

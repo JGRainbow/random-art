@@ -22,12 +22,10 @@ class TestCanvas:
         canvas = Canvas(turtle, grid_size)
 
         # Act
-        for _ in range(num_steps):
-            print(canvas.grid)
+        for i in range(num_steps):
             canvas.step()
 
         grid = canvas.grid
-        print(f"final grid: {grid}")
 
         # Assert
         assert_array_equal(grid, expected_grid)
