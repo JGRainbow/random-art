@@ -40,3 +40,25 @@ def random_turtle_canvas_data():
         ),
     ]
     return test_variables, test_data
+
+def random_turtle_canvas_n_step_data():
+    test_variables = "turtle,grid_size,num_steps,expected_grid"
+    test_data = [
+        param(
+            RandomWalkTurtle(Coord(5, 5), seed=149),
+            (10, 10),
+            10,
+            np.array([[0., 0., 1., 0., 0., 0., 0., 0., 0., 0.],
+                        [0., 2., 0., 1., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 2., 0., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 1., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 2., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 0., 2., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+                        [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]]),
+            id="ten steps in 10x10 grid",
+        ),
+    ]
+    return test_variables, test_data

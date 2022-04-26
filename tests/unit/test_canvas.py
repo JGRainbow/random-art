@@ -6,7 +6,7 @@ from numpy.testing import assert_array_equal
 
 from app.canvas import Canvas
 from app.turtle import RandomWalkTurtle
-from tests.data.canvas_data import random_turtle_canvas_data
+from tests.data.canvas_data import random_turtle_canvas_data, random_turtle_canvas_n_step_data
 
 
 class TestCanvas:
@@ -29,3 +29,22 @@ class TestCanvas:
 
         # Assert
         assert_array_equal(grid, expected_grid)
+
+    @pytest.mark.parametrize(*random_turtle_canvas_n_step_data())
+    def test_random_turtle_canvas(
+        self,
+        turtle: RandomWalkTurtle,
+        grid_size: Tuple[int],
+        num_steps: int,
+        expected_grid: np.ndarray,
+    ):
+        # Arrange
+        canvas = Canvas(turtle, grid_size)
+
+        # Act
+        canvas.n_steps(num_steps)
+
+        grid = canvas.grid
+
+        # Assert
+        assert_array_equal(grid, expected_grid)        
