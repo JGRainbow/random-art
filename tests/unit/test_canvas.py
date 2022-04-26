@@ -1,19 +1,25 @@
+import random
 from typing import Tuple
 
 import numpy as np
 import pytest
-from numpy.testing import assert_array_equal
-
 from app.canvas import Canvas
-from app.turtle import RandomWalkTurtle
-from tests.data.canvas_data import random_turtle_canvas_data, random_turtle_canvas_n_step_data
+from app.turtle import Turtle
+from numpy.testing import assert_array_equal
+from tests.data.canvas_data import (random_turtle_canvas_data,
+                                    random_turtle_canvas_n_step_data)
 
 
 class TestCanvas:
+
+    # @pytest.fixture
+    # def random():
+    #     random.seed(149)
+
     @pytest.mark.parametrize(*random_turtle_canvas_data())
     def test_random_turtle_canvas(
         self,
-        turtle: RandomWalkTurtle,
+        turtle: Turtle,
         grid_size: Tuple[int],
         num_steps: int,
         expected_grid: np.ndarray,
@@ -31,9 +37,9 @@ class TestCanvas:
         assert_array_equal(grid, expected_grid)
 
     @pytest.mark.parametrize(*random_turtle_canvas_n_step_data())
-    def test_random_turtle_canvas(
+    def test_random_turtle_n_step_canvas(
         self,
-        turtle: RandomWalkTurtle,
+        turtle: Turtle,
         grid_size: Tuple[int],
         num_steps: int,
         expected_grid: np.ndarray,
@@ -45,6 +51,7 @@ class TestCanvas:
         canvas.n_steps(num_steps)
 
         grid = canvas.grid
+        print(grid)
 
         # Assert
-        assert_array_equal(grid, expected_grid)        
+        assert_array_equal(grid, expected_grid)

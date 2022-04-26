@@ -28,7 +28,7 @@ class Canvas:
             coord.x >= 0 and coord.x < self.grid_size[0]
         ), f"Turtle has wandered off grid in x direction."
         assert (
-            coord.y >= 0 and coord.x < self.grid_size[1]
+            coord.y >= 0 and coord.y < self.grid_size[1]
         ), f"Turtle has wandered off grid in y direction."
 
     # TODO : It would be nice to dynamically extend grid size
