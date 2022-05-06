@@ -1,14 +1,16 @@
 [tool.poetry]
-name = "scikage_test"
+name = "random-art"
 version = "0.1.0"
 description = ""
 authors = ["Jacob Rainbow <jacobrainbow@Jacobs-MacBook-Pro.local>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.7,<4.0"
 scikit-image = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
+assertpy = "^1.1"
+pytest = "^7.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
