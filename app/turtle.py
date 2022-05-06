@@ -62,3 +62,33 @@ class RandomPolarTurtle(Turtle):
         vector = Vector(dx, dy)
         self.current_position += vector
         return vector
+
+
+class IncrementingPolarTurtle(Turtle):
+    """Like the RandomPolarTurtle, but the bearing increases by a fixed increment every iteration."""
+
+    def __init__(
+        self, start_position: Coord = Coord(0, 0), step_size: int=4, start_bearing: float=0, increment_ratio: float=0.1):
+        self.current_position = start_position
+        self.step_size = step_size
+        self.start_bearing = start_bearing
+        self.increment_ratio = increment_ratio
+        self._bearing_generator = self._generate_bearing()
+
+    def _generate_bearing(self):
+        latest_bearing = self.start_bearing
+        i = 0
+        while True:
+            fraction = ((latest_bearing / (2 * np.pi)) + i * self.increment_ratio) % 1
+            # fraction = (latest_bearing / (2 * np.pi) + self.increment_ratio) % 1
+            latest_bearing = 2 * np.pi * fraction
+            i += 1
+            yield latest_bearing
+
+    def generate_next_vector(self) -> Vector:
+        theta = next(self._bearing_generator)
+        dx = int(round(self.step_size * np.sin(theta), 0))
+        dy = int(round(self.step_size * np.cos(theta), 0))
+        vector = Vector(dx, dy)
+        self.current_position += vector
+        return vector

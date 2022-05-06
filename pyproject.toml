@@ -7,6 +7,9 @@ authors = ["Jacob Rainbow <jacobrainbow@Jacobs-MacBook-Pro.local>"]
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
 scikit-image = "^0.19.2"
+jupyter = "^1.0.0"
+ipykernel = "^6.13.0"
+matplotlib = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
 assertpy = "^1.1"

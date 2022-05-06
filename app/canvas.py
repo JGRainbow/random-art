@@ -56,6 +56,9 @@ class Canvas:
         for _ in range(n):
             self.step()
 
+    def plot_grid(self):
+        pass
+
 
 if __name__ == "__main__":
     from app.turtle import RandomWalkTurtle
